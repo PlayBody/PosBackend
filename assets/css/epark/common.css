@@ -1,0 +1,358 @@
+
+.epark-condition{
+    padding: 10px 20px;
+    background-color: white;
+    box-shadow: 0 1px 3px 1px #cccccc;
+}
+.epark-condition button{
+    height: 38px;
+}
+.epark-condition .cond_left{
+    align-items: center;
+    display: flex;
+}
+.epark-condition .date{
+    margin-left: 40px;
+    margin-right: 12px;
+    width: 180px;
+}
+#btn_to_before_date, #btn_to_next_date{
+    width: 40px;
+}
+#btn_to_today_date{
+    width: 96px;
+}
+
+.epark-left-nav{
+    float: left;
+    width: 64px;
+    min-height: 80vh;
+    background-color: #e1e1e1;
+}
+.epark-left-nav button{
+    border: none;
+    background:none;
+}
+.epark-left-nav button:hover{
+    background:#97c6ff;
+}
+.epark-fa{
+    width: 40px;
+    height: 50px;
+    display: inline-block;
+}
+.epark_fa_clock{
+    background-image: url("icon/icon_clock.png");
+}
+.epark_fa_open{
+    background-image: url("icon/icon_open.png");
+}
+.epark_fa_close{
+    background-image: url("icon/icon_close.png");
+}
+.epark_fa_jpy{
+    background-image: url("icon/icon_jpy.png");
+}
+.epark_fa_user{
+    background-image: url("icon/icon_user.png");
+}
+.epark_fa_card{
+    background-image: url("icon/icon_card.png");
+}
+
+#schedule-content{
+    display: flex;
+    width: 100%;
+}
+
+#time_mark_line{
+    display: flex;
+    width: 100%;
+}
+#time_mark_line button{
+    width: 100%;
+}
+
+#epark-content{
+    padding : 12px 20px;
+    flex: auto;
+    /*width: 100%;*/
+}
+.epark-right-content{
+    width: 100%;
+}
+#epark-content>div{
+    margin-top:12px;
+}
+.time_mark{
+    align-items: center;
+    height: 32px;
+    background-color: #666666;
+    display: flex;
+}
+.time_mark span{
+    width: 20px;
+    height: 20px;
+    font-size: 16px;
+    padding: 4px 8px;
+    color: white;
+    background-color: #333333;
+    border-radius: 20px;
+}
+.time_mark .hour-list{
+    display: flex;
+    flex:auto;
+}
+.time_mark .hour-list>div{
+    width: 100%;
+}
+.time_mark .hour-list>div>div{
+    width: 28px;
+    height: 28px;
+    line-height: 28px;
+    font-size: 16px;
+    text-align: center;
+    color: white;
+    border-radius: 20px;
+
+}
+.time_mark .hour-list>div>div.hour{
+    background-color: #333333;
+
+}
+.epark-schedule-back{
+    border: solid #979797 1px;
+}
+
+.shift_title, .booth_title{
+    background-color: #bdbdbd;
+    padding: 4px 12px;
+}
+.shift_content, .booth_content{
+    background-color: white;
+    display: flex;
+}
+
+.no_shift_comment{
+    padding: 12px 16px;
+}
+
+.staffs{
+    width: 160px;
+    border-right: solid #979797 2px;
+}
+
+.cell-list{
+    flex: auto;
+    overflow: hidden;
+    /*width: 100%;*/
+}
+
+.shift_title, .booth_title{
+    border-bottom: solid #979797 1px;
+}
+
+.staffs>div{
+    align-items: center;
+    background-color: #efefef;
+    padding:8px;
+}
+
+.staffs>div.sex1{
+    border-left: solid #40b3fd 5px;
+}
+.staffs>div.sex2{
+    border-left: solid #f596a0 5px;
+}
+.staffs>div.seat{
+    border-left: solid #76c576 5px;
+}
+.staff_name.staff_droppable_active{
+    background-color: #cdcdcd  ;
+}
+
+.staffs>div, .cell-list>div{
+    border-bottom: solid #979797 1px;
+    height: 56px;
+    display: flex;
+}
+
+.cell:nth-child(2n){
+    border-right: solid #979797 1px;
+}
+.time_mode .cell:nth-child(2n+1){
+    border-right: dashed #979797 1px;
+}
+.cell:nth-child(12n){
+    border-right: solid #979797 2px;
+}
+
+.cell{
+    column-count: 1;
+    background-color: #c3c3c3;
+    width: 100%;
+    /*overflow: auto;*/
+}
+
+
+.shift-apply{
+    background-color: white;
+    cursor: pointer;
+}
+.shift-apply:hover{
+    background-color: #ffb2b1;
+}
+
+.cell-none{
+    /*border-color: #c3c3c3 !important;*/
+}
+.shift-other{
+    background-color: red;
+    cursor: pointer;
+    /*border-color: red !important;*/
+}
+
+.cell-row{
+    position: relative;
+    /*overflow: hidden;*/
+}
+
+.epark-appoint{
+    position: absolute;
+    height: 56px;
+    border: solid #000000 2px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+#target_to_other_date .epark-appoint{
+    position: relative;
+}
+.epark-appoint.pre-select{
+    border-color: #000000 !important;
+}
+#target_to_other_date .epark-appoint.waiting{
+    position: relative !important;
+    left: 0 !important;
+}
+.epark-shift-other{
+    cursor: pointer;
+}
+.epark-appoint p{
+    margin: 0;
+}
+.epark-order{
+    cursor: pointer;
+}
+
+.ap-submit{
+    background-color: #2bb2ff;
+    border-color: #2288c3;
+}
+.ap-reject{
+    background-color: #f3abaa;
+    border-color: #d3706f;
+}
+.ap-out{
+    background-color: #bf92db;
+    border-color: #9e70bb;
+}
+.ap-rest{
+    background-color: #bdbdbd;
+    border-color: #8f8e8e;
+}
+.ap-request{
+    background-color: #8dc196;
+    border-color: #4e8958;
+}
+.ap-reply{
+    background-color: #fbf2b1;
+    border-color: #b9aa48;
+}
+.ap-lock{
+    background-color: #adadad;
+    border-color: #8f8f8f;
+}
+
+.btn-custom-groups-one>button:first-child{
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+}
+.btn-custom-groups-one>button:last-child{
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+}
+#time_mark_line button{
+    padding: 0;
+    height: 24px;
+    line-height: 24px;
+}
+#time_mark_line button.active{
+    background-color: #bdbdbd;
+}
+
+#schedule_mod button{
+    height: 40px;
+    /*width: 80px;*/
+}
+#schedule_mod button.active{
+    background-color: #fff5b5;
+}
+#schedule_mod_time{
+    width: 120px;
+}
+#schedule_mod_type{
+    width: 190px;
+}
+
+#target_to_other_date{
+    padding: 2px 12px;
+    /*line-height: 40px;*/
+    background-color: white;
+    border-radius: 3px;
+    height: 40px;
+    flex: auto;
+    /*width: 100%;*/
+    border:dashed #8d8d8d 1px;
+    margin-right: 20px;
+    position: relative;
+    /*overflow: hidden;*/
+    text-align: center;
+    display: flex;
+}
+#target_to_other_date:before{
+    content: '日付をまたいで予定を変更したい場合は、一旦このエリアに置いてください。';
+    white-space: nowrap;
+    position: absolute;
+    transform: translate(50%, 50%);
+}
+#target_to_other_date.waiting{
+    height: auto;
+}
+#target_to_other_date>div{
+    margin-right: 8px;
+}
+.modal-content .modal-header h4>span{
+    padding-left:40px;
+    font-size: 16px;
+}
+.modal-dialog.reserve{
+    width: 900px;
+}
+
+.i-sex-1{
+    color: #005c9f;
+}
+.i-sex-2{
+    color: #b10000;
+}
+
+.reserve_content_item>i.i-sex-complete {
+    color: #40ad40;
+}
+
+.order_complete_confirm{
+    text-align: center;
+}
+.order_complete_confirm select{
+    margin-top: 20px;
+}

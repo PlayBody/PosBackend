@@ -1,0 +1,30 @@
+.epark-order .sex{
+    color: white;
+    padding: 1px;
+    border-radius: 2px;
+}
+.epark-order .sex1{
+    background-color: #0063c9;
+}
+.epark-order .sex2{
+    background-color: #cb4b4b;
+}
+.epark-order p{
+    padding-left: 2px;
+    font-size: 12px;
+    white-space: nowrap;
+}
+.epark-order .staff_type{
+    color: white;
+    padding: 1px;
+    border-radius: 2px;
+}
+.epark-order .staff_type1{
+    background-color: #0063c9;
+}
+.epark-order .staff_type2{
+    background-color: #cb4b4b;
+}
+.epark-order .staff_type3{
+    background-color: #1dad00;
+}

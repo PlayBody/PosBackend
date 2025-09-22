@@ -1,0 +1,23 @@
+.modal-body h3 {
+    background-color: #e0eef9;
+    font-size: 16px;
+    padding: 6px 8px;
+}
+.reserve_add_menu_content{
+    /*border:solid #cbcbcb 1px;*/
+}
+.reserve_add_menu_content button{
+    margin-right: 6px;
+    margin-bottom: 6px;
+    border:solid #cecece 1px;
+}
+.reserve_add_category {
+    border-bottom: solid #cbcbcb 1px;
+    padding: 8px;
+}
+.reserve_add_menu {
+    padding: 8px;
+}
+.reserve_add_menu>button.selected{
+    border: solid #f92b2b 3px;
+}
