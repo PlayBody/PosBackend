@@ -431,6 +431,39 @@ class Apicoupons extends WebController
         echo json_encode($results);
     }
 
+    public function deleteUserCoupon(){
+        $user_coupon_id = $this->input->post('user_coupon_id');
+        
+        if (empty($user_coupon_id)){
+            $results['isDelete'] = false;
+            $results['message'] = 'Invalid user coupon ID';
+            echo json_encode($results);
+            return;
+        }
+
+        // Check if the user coupon exists
+        $user_coupon = $this->user_coupon_model->getFromId($user_coupon_id);
+        if (empty($user_coupon)) {
+            $results['isDelete'] = false;
+            $results['message'] = 'User coupon not found';
+            echo json_encode($results);
+            return;
+        }
+
+        // Update the delete_flag to 1 (deleted)
+        $updateResult = $this->user_coupon_model->updateDeleteFlag($user_coupon_id, 1);
+        
+        if ($updateResult) {
+            $results['isDelete'] = true;
+            $results['message'] = 'Coupon deleted successfully';
+        } else {
+            $results['isDelete'] = false;
+            $results['message'] = 'Failed to delete coupon';
+        }
+        
+        echo json_encode($results);
+    }
+
     public function loadUserRank(){
         $company_id = $this->input->post('company_id');
         $user_id = $this->input->post('user_id');

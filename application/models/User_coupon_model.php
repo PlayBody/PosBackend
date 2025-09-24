@@ -12,7 +12,7 @@ class User_coupon_model extends Base_model
     }
 
     public function getUserCoupons($cond){
-        $this->db->select('coupons.*, user_coupons.user_coupon_id, user_coupons.use_flag');
+        $this->db->select('coupons.*, user_coupons.user_coupon_id, user_coupons.use_flag, user_coupons.delete_flag');
         $this->db->from($this->table);
         $this->db->join('coupons', 'coupons.coupon_id=user_coupons.coupon_id','inner');
 
@@ -38,6 +38,10 @@ class User_coupon_model extends Base_model
             $this->db->where("coupons.visible = 1");
         }
 
+        // Filter out deleted coupons by default (delete_flag = 0 or null)
+        if (!isset($cond['include_deleted']) || $cond['include_deleted'] != 1) {
+            $this->db->where("(user_coupons.delete_flag IS NULL OR user_coupons.delete_flag = 0)");
+        }
 
         $this->db->order_by('coupons.use_date', 'desc');
 
@@ -46,6 +50,12 @@ class User_coupon_model extends Base_model
         return $query->result_array();
 
     }
+
+    public function updateDeleteFlag($user_coupon_id, $delete_flag = 1) {
+        $this->db->where('user_coupon_id', $user_coupon_id);
+        return $this->db->update($this->table, array('delete_flag' => $delete_flag));
+    }
+
     public function getStaffListByCoupon($cond){
 
         $this->db->select("staffs.*");
