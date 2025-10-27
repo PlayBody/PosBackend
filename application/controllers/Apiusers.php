@@ -49,14 +49,29 @@ class Apiusers extends WebController
         $user = $this->user_model->getFromId($user_id);
 
         $groups = $this->group_user_model->getGroupsByUser($user_id);
+        
+        // Get user tickets with reset_count information
+        $user_tickets = $this->user_ticket_model->getListByCond(['user_id'=>$user_id]);
 
         $ticket_reset = $this->user_ticket_reset_setting_model->getResetSetting(['user_id'=>$user_id]);
 
         if (!empty($groups)){
             $user['group'] = $groups[0];
+            $user['group_name'] = $groups[0]['group_name'];
+        } else {
+            $user['group_name'] = '';
         }
+        
+        // Add reset_count from the first user ticket (if exists)
+        if (!empty($user_tickets)){
+            $user['reset_count'] = $user_tickets[0]['reset_count'];
+        } else {
+            $user['reset_count'] = '0';
+        }
+        
         $results['isLoad'] = true;
         $results['user'] = $user;
+        $results['user_tickets'] = $user_tickets;
         $results['ticket_reset'] = empty($ticket_reset) ? null : $ticket_reset ;
 
         echo json_encode($results);
