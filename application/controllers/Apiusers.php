@@ -62,9 +62,23 @@ class Apiusers extends WebController
             $user['group_name'] = '';
         }
         
-        // Add reset_count from the first user ticket (if exists)
+        // Add reset_count from ticket id 31 if exists, otherwise from the first user ticket
         if (!empty($user_tickets)){
-            $user['reset_count'] = $user_tickets[0]['reset_count'];
+            // Check if ticket id 31 exists
+            $ticket_31 = null;
+            foreach ($user_tickets as $ticket) {
+                if ($ticket['ticket_id'] == 31) {
+                    $ticket_31 = $ticket;
+                    break;
+                }
+            }
+            
+            // Use ticket 31's reset_count if found, otherwise use the first ticket
+            if ($ticket_31) {
+                $user['reset_count'] = $ticket_31['reset_count'];
+            } else {
+                $user['reset_count'] = $user_tickets[0]['reset_count'];
+            }
         } else {
             $user['reset_count'] = '0';
         }
